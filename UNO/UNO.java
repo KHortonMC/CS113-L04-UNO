@@ -81,10 +81,12 @@ public class UNO {
 
             // todo: create logic to handle the playing of a card
             // 1) if a null card is returned, have the player draw
-            // 2) if a valid card is returned, display a system message with player's name and card
-            // 3) if the card is a reverse card, change the direction of play
-            // 4) if the player has one card left after play, print out "UNO!"
-            // 5) if the player has zero cards left after play, gameOn = false and print a message
+            // 2) if a valid card is returned, complete steps 3-7
+            // 3) display a system message with player's name and card
+            // 4) add the returned card to the top of the discard pile
+            // 5) if the card is a reverse card, change the direction of play
+            // 6) if the player has one card left after play, print out "UNO!"
+            // 7) if the player has zero cards left after play, gameOn = false and print a message
         }
     }
 

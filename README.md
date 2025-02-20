@@ -45,6 +45,8 @@ Implement the following methods in Player:
 
 drawCard(Card card): Adds a card to the hand.
 
+NOTE: to test player hands, you'll need to complete setupPlayers to call draw().
+
 handSize(): Returns the number of cards.
 
 attemptToPlay(Card topOfDiscard): Finds a playable card and removes it.
