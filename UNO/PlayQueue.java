@@ -9,8 +9,9 @@ public class PlayQueue<E> {
     }
 
     Node<E> current;
+    boolean forwards;
 
-    public PlayQueue() {}
+    public PlayQueue() { forwards = true; }
 
     public void add(E element) { 
         // todo: add the element after current, making sure to maintain
