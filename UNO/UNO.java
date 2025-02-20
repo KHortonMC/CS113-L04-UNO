@@ -27,6 +27,7 @@ public class UNO {
 
         shuffleDeck();
 
+        // notice: poll removes and returns an element
         discard.add(deck.pollFirst());
     }
 
@@ -48,11 +49,9 @@ public class UNO {
         players.add(new Player("Charlie"));
         players.add(new Player("Dana"));
 
-        for (int i = 0; i < 4; i++) {
-            for (int j = 0; j < players.size(); j++) {
-                players.getNext().drawCard(deck.pollFirst());
-            }
-        }
+        // todo: have each player draw four cards
+        // from the front of the deck. 
+        // tip: pollFirst removes and returns an item
     }
 
     boolean takeTurn(Player player) {
@@ -69,33 +68,23 @@ public class UNO {
 
         while (gameOn) {
             if (deck.isEmpty()) {
-                while (discard.size() > 1) {
-                    deck.add(discard.pollFirst());
-                }
-                shuffleDeck();
+                // todo: copy cards from the discard pile to the deck
+                // while preserving the current last card from the 
+                // discard pile, then call shuffleDeck() when finished
             }
 
             Player player = players.getNext();
+            if (player == null) {
+                throw new NullPointerException("Not getting a player from PlayQueue.getNext()");
+            }
             Card card = player.attemptToPlay(discard.peekLast());
 
-            if (card == null) {
-                player.drawCard(deck.pollFirst());
-            } else {
-                System.out.println(player.getName() + " plays [" + card + "]");
-                discard.add(card);
-
-                if (card.getValue() == Card.Values.Reverse) {
-                    players.reverseDirection();
-                }
-            }
-    
-            if (player.handSize() == 1) {
-                System.out.println("UNO!");
-            }
-            if (player.handSize() == 0) {
-                System.out.println(player.getName() + " WINS!!!");
-                gameOn = false;
-            }
+            // todo: create logic to handle the playing of a card
+            // 1) if a null card is returned, have the player draw
+            // 2) if a valid card is returned, display a system message with player's name and card
+            // 3) if the card is a reverse card, change the direction of play
+            // 4) if the player has one card left after play, print out "UNO!"
+            // 5) if the player has zero cards left after play, gameOn = false and print a message
         }
     }
 

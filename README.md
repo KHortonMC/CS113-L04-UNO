@@ -57,13 +57,9 @@ Goal: Integrate PlayQueue and Player to manage the full turn-based game logic.
 
 Tasks:
 
-Implement a deck as a linked list.
+Implement a deck as a linked list. This is done for you!
 
 Implement the following game mechanics:
-
-buildDeck(): Generates and shuffles the deck.
-
-shuffleDeck(): Randomizes card order.
 
 play(): Controls the game loop, handling turns and play order.
 

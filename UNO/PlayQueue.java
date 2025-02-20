@@ -8,45 +8,28 @@ public class PlayQueue<E> {
         public Node(E element) { this.element = element; }
     }
 
-    Node<E> curr;
-    boolean forwards = true;
+    Node<E> current;
 
     public PlayQueue() {}
 
-    public void add(E element) {
-        if (curr == null) {
-            curr = new Node<>(element);
-            curr.next = curr;
-            curr.prev = curr;
-        } else {
-            Node<E> temp = new Node<>(element);
-            temp.next = curr.next;
-            curr.next = temp;
-            temp.prev = curr;
-            temp.next.prev = temp;
-        }
+    public void add(E element) { 
+        // todo: add the element after current, making sure to maintain
+        // circular links both in prev and next directions
     }
+
+    public E getNext() { 
+        // todo: if this.forwards == true, advance current to next
+        // otherwise advance current to prev before returning current.element
+        return null;
+     }
 
     public void reverseDirection() {
-        forwards = !forwards;
+        // todo: reverse the direction of play
     }
 
-    public E getNext() {
-        if (forwards) {
-            curr = curr.next;
-        } else {
-            curr = curr.prev;
-        }
-        return curr.element;
-    }
-
-    public int size() {
-        int counter = 0;
-        Node<E> next = curr.next;
-        while (next != curr) {
-            next = next.next;
-            counter++;
-        }
-        return counter;
+    public int size() { 
+        // todo: count the number of elements in a circular linked list
+        // to accomplish this, start at curr and count iterations until returning to current
+        return 0; 
     }
 }
